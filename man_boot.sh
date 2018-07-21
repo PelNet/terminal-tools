@@ -1,19 +1,19 @@
 #!/bin/bash
-#this script shows a list of managed VMs retrieved from /etc/hosts
-#type vm name to reboot it
-#press CTRL + C to stop the script.
+#this script reboots a remote host
+#select a remote hostnames retrieve a list from /etc/hosts
+# ^c to abort
 
 #retrieve list of hostnames
-echo "Retrieving managed VM's:"
+echo "Retrieving hosts:"
 cat /etc/hosts | awk '{print $2}'
 
-#selected vm = mvm, validate if string is not null
-echo "SELECT VM to reboot:"
-read mvm
-if [ -z "$mvm" ]; then
-	echo "Error: No VM specified, please enter a name."
+#read host as variable, validate if string is not null
+echo "SELECT host to reboot:"
+read host
+if [ -z "$host" ]; then
+	echo "Error: No host specified, please enter a name."
 else
-	ssh $mvm "reboot"
-	echo "$mvm is rebooting." 
+	ssh $host "reboot"
+	echo "$host is rebooting." 
 fi
 exit
