@@ -1,7 +1,6 @@
 #!/bin/bash
-#this script reboots a remote host
-#select a remote hostnames retrieve a list from /etc/hosts
-# ^c to abort
+#this script reboots a remote host retrieved from /etc/hosts
+# Author: Bilal el Kouazi http://bilalelkouazi.nl/
 
 #retrieve list of hostnames
 echo "Retrieving hosts:"
