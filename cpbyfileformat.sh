@@ -3,14 +3,11 @@
 # all files in the given fileformat will be copied to a directory of choice
 
 fileformat=$1
-echo "Copy $fileformat files to ./test ? Press 'y' to confirm:"
+echo "Copy $fileformat files? Press 'y' to confirm:"
 read agr
-result=ls -l | grep .$fileformat | wc -l 
-echo "$result were found"
-#if [ "$agr" == "y" ]; then
-#	echo "y pressed..."
-#	cp *.$fileformat test
-#else
-#	echo "Terminating script: You did not confirm." 
-#	exit
-#fi
+echo "Choose a directory to paste all the $fileformat files:"
+read pastedir
+cp *.$fileformat $pastedir
+echo "Total amount of $fileformat files copied:"
+result= ls -l $pastedir | grep .$fileformat | wc -l
+echo "Terminating script..."
