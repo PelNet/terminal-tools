@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 
 #
 # Estimates upload time of a given file
@@ -7,14 +7,13 @@
 # example: upd /home/johndoe/mymovie.mp4 50
 #
 
-#first argument is file
+#first argument is file, second speed in mbps
 file=$1
+uplspd=$2/8
 
 #find out size, convert to MB
-fileSize=du $1
+#is float number
+size= du $file | awk '{fileSizeMB = $1 / 1000; print fileSizeMB}'>tmp.log
 
-#upload speed convert
-nspeed=$2
-convspeed=nspeed/8
-
-#dive file size by speed
+#divide size by time
+#estime=$size
